@@ -1,3 +1,5 @@
+require 'facter'
+
 Facter.add(:apache_version) do
   confine kernel: ['FreeBSD', 'Linux']
   setcode do
