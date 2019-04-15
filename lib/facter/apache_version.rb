@@ -4,7 +4,7 @@ Facter.add(:apache_version) do
   confine kernel: ['FreeBSD', 'Linux']
   setcode do
     if Facter::Util::Resolution.which('apachectl')
-      if Facter.Value(:operatingsystem) == 'Fedora'
+      if Facter.value(:operatingsystem) == 'Fedora'
         apache_version = Facter::Util::Resolution.exec('httpd -v 2>&1')
       else
         apache_version = Facter::Util::Resolution.exec('apachectl -v 2>&1')
